@@ -1,0 +1,199 @@
+{
+  "model_name": "Random Forest IoT Intrusion Classifier",
+  "algorithm": "RandomForestClassifier",
+  "version": "RF-IOT-v1.0",
+  "trained_at": "2026-09-15T19:51:33.163794Z",
+  "parameters": {
+    "n_estimators": 100,
+    "max_depth": 15,
+    "class_weight": "balanced",
+    "random_state": 42
+  },
+  "dataset_info": {
+    "total_records": 12000,
+    "train_records": 9600,
+    "test_records": 2400,
+    "num_features": 12,
+    "features": [
+      "flow_duration",
+      "packet_count",
+      "byte_count",
+      "pkt_len_mean",
+      "pkt_len_std",
+      "flow_pkts_per_sec",
+      "flow_bytes_per_sec",
+      "port_entropy",
+      "dest_port",
+      "protocol_TCP",
+      "protocol_UDP",
+      "protocol_ICMP"
+    ],
+    "classes": [
+      "Botnet",
+      "Brute Force",
+      "DoS",
+      "Normal",
+      "Port Scan",
+      "Suspicious"
+    ]
+  },
+  "metrics": {
+    "accuracy": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1_score": 1.0,
+    "false_positives": 0,
+    "false_negatives": 0,
+    "confusion_matrix": [
+      [
+        245,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        231,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        369,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1190,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        241,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        124
+      ]
+    ],
+    "classification_report": {
+      "Botnet": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 245.0
+      },
+      "Brute Force": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 231.0
+      },
+      "DoS": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 369.0
+      },
+      "Normal": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 1190.0
+      },
+      "Port Scan": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 241.0
+      },
+      "Suspicious": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 124.0
+      },
+      "accuracy": 1.0,
+      "macro avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 2400.0
+      },
+      "weighted avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 2400.0
+      }
+    },
+    "feature_importances": [
+      {
+        "feature": "pkt_len_std",
+        "importance": 0.1586
+      },
+      {
+        "feature": "port_entropy",
+        "importance": 0.1572
+      },
+      {
+        "feature": "packet_count",
+        "importance": 0.1234
+      },
+      {
+        "feature": "pkt_len_mean",
+        "importance": 0.1145
+      },
+      {
+        "feature": "dest_port",
+        "importance": 0.0965
+      },
+      {
+        "feature": "flow_bytes_per_sec",
+        "importance": 0.0963
+      },
+      {
+        "feature": "flow_duration",
+        "importance": 0.0957
+      },
+      {
+        "feature": "byte_count",
+        "importance": 0.0927
+      },
+      {
+        "feature": "flow_pkts_per_sec",
+        "importance": 0.0644
+      },
+      {
+        "feature": "protocol_TCP",
+        "importance": 0.0003
+      },
+      {
+        "feature": "protocol_UDP",
+        "importance": 0.0002
+      },
+      {
+        "feature": "protocol_ICMP",
+        "importance": 0.0
+      }
+    ]
+  }
+}
