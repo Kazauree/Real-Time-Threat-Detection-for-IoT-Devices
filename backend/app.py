@@ -115,6 +115,9 @@ def handle_connect():
 def handle_disconnect():
     print("[-] Dashboard client disconnected from WebSocket feed.")
 
+if os.getenv("VERCEL"):
+    seed_database()
+
 if __name__ == "__main__":
     seed_database()
     print("[+] Starting Real-Time IoT Threat Detection Backend Server on port 5000...")

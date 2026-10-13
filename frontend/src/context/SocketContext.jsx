@@ -3,7 +3,8 @@ import { io } from 'socket.io-client';
 
 const SocketContext = createContext();
 
-const SOCKET_URL = 'http://localhost:5000';
+// Same-origin by default (proxied by Vite in dev). Set VITE_SOCKET_URL to use an external realtime host.
+const SOCKET_URL = import.meta.env.VITE_SOCKET_URL || undefined;
 
 export const SocketProvider = ({ children }) => {
   const [socket, setSocket] = useState(null);

@@ -3,8 +3,12 @@ from datetime import datetime
 from sqlalchemy import create_engine, Column, Integer, String, Float, Boolean, DateTime, ForeignKey, Text
 from sqlalchemy.orm import declarative_base, sessionmaker, relationship
 
-DB_PATH = os.getenv("DATABASE_URL", "sqlite:///database/iot_threats.db")
-os.makedirs("database", exist_ok=True)
+if os.getenv("VERCEL"):
+    _DB_DIR = "/tmp"
+else:
+    _DB_DIR = "database"
+DB_PATH = os.getenv("DATABASE_URL", f"sqlite:///{_DB_DIR}/iot_threats.db")
+os.makedirs(_DB_DIR, exist_ok=True)
 
 engine = create_engine(DB_PATH, connect_args={"check_same_thread": False} if DB_PATH.startswith("sqlite") else {})
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
